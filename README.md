@@ -6,6 +6,8 @@ resSwitch needs the python libraries Tkinte and matplotlib.
 
 Author: Daniel Silva (djsilva99@gmail.com)
 
+![resSwitch-screenshot](https://dl.dropboxusercontent.com/u/2077037/resSwitchScreenshot.png)
+
 Versions:
 
 0.01 --> current
