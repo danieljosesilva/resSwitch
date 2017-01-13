@@ -10,7 +10,7 @@ from matplotlib.figure import Figure
 from tkFileDialog import askopenfilename
 from tkFileDialog import asksaveasfile
 import pickle
-import FileDialog #needed for making an executable with pyinstaller
+#import FileDialog #needed for making an executable with pyinstaller
 
 
 
@@ -229,14 +229,18 @@ class ResSwitch(Tkinter.Tk):
 		L1.pack( side = 'left')
 		self.tensionHistoMin = Tkinter.Entry(f11, bd =5)
 		self.tensionHistoMin.pack(side = 'right')
+		self.tensionHistoMin.insert(0,min(self.data.onTension+self.data.offTension))
 		L2 = Tkinter.Label(f12, text="max")
 		L2.pack( side = 'left')
 		self.tensionHistoMax = Tkinter.Entry(f12, bd =5)
 		self.tensionHistoMax.pack(side = 'right')
+		self.tensionHistoMax.insert(0,max(self.data.onTension+self.data.offTension))
 		L3 = Tkinter.Label(f13, text="steps")
 		L3.pack( side = 'left')
 		self.tensionHistoSteps = Tkinter.Entry(f13, bd =5)
 		self.tensionHistoSteps.pack(side = 'right')
+		self.tensionHistoSteps.insert(0,(max(self.data.onTension+self.data.offTension)
+			-min(self.data.onTension+self.data.offTension))/0.1)
 		bu = Tkinter.Button(f2,text='ok',command=self.tenHist)
 		bu.pack()
 
@@ -285,14 +289,17 @@ class ResSwitch(Tkinter.Tk):
 		L1.pack( side = 'left')
 		self.resistanceHistoMin = Tkinter.Entry(f11, bd =5)
 		self.resistanceHistoMin.pack(side = 'right')
+		self.resistanceHistoMin.insert(0,1)
 		L2 = Tkinter.Label(f12, text="max")
 		L2.pack( side = 'left')
 		self.resistanceHistoMax = Tkinter.Entry(f12, bd =5)
 		self.resistanceHistoMax.pack(side = 'right')
+		self.resistanceHistoMax.insert(0,max(self.data.onResistance+self.data.offResistance)*100)
 		L3 = Tkinter.Label(f13, text="steps")
 		L3.pack( side = 'left')
 		self.resistanceHistoSteps = Tkinter.Entry(f13, bd =5)
 		self.resistanceHistoSteps.pack(side = 'right')
+		self.resistanceHistoSteps.insert(0,100)
 		bu = Tkinter.Button(f2,text='ok',command=self.resHist)
 		bu.pack()
 
@@ -342,14 +349,17 @@ class ResSwitch(Tkinter.Tk):
 		L1.pack(side='left')
 		self.currentHistoMin = Tkinter.Entry(f11, bd =5)
 		self.currentHistoMin.pack(side='right')
+		self.currentHistoMin.insert(0,0.0000001)
 		L2 = Tkinter.Label(f12, text="max")
 		L2.pack( side='left')
 		self.currentHistoMax = Tkinter.Entry(f12, bd =5)
 		self.currentHistoMax.pack(side='right')
+		self.currentHistoMax.insert(0,1)
 		L3 = Tkinter.Label(f13, text="steps")
 		L3.pack( side='left')
 		self.currentHistoSteps = Tkinter.Entry(f13, bd =5)
 		self.currentHistoSteps.pack(side='right')
+		self.currentHistoSteps.insert(0,100)
 		bu = Tkinter.Button(f2,text='ok',command=self.curHist)
 		bu.pack()
 
@@ -797,7 +807,7 @@ class ResSwitch(Tkinter.Tk):
 		self.aboutWindow.maxsize(width=200, height=100)
 		f1 = Tkinter.Frame(self.aboutWindow)
 		f1.pack(side='top')
-		about = Tkinter.Label(f1, text="\nResSwitch (version 0.1)\n\nauthor: Daniel Silva")
+		about = Tkinter.Label(f1, text="\nResSwitch (version 0.01)\n\nauthor: Daniel Silva")
 		about.pack()
 
 
