@@ -10,7 +10,7 @@ from matplotlib.figure import Figure
 from tkFileDialog import askopenfilename
 from tkFileDialog import asksaveasfile
 import pickle
-#import FileDialog #needed for making an executable with pyinstaller
+import FileDialog #needed for making an executable with pyinstaller
 
 
 
@@ -38,8 +38,8 @@ class ResSwitch(Tkinter.Tk):
 
 
 		#Constructs the icon. Comment these lines if running on Windows:
-		img = Tkinter.PhotoImage(file='resSwitch.ico')
-		self.tk.call('wm', 'iconphoto', self._w, img)
+		#img = Tkinter.PhotoImage(file='resSwitch.ico')
+		#self.tk.call('wm', 'iconphoto', self._w, img)
 
 
 		#construct the Left Frame.
