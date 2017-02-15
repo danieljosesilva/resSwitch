@@ -33,14 +33,14 @@ class rawDataSet:
         maxDelta = 0.
         delta = abs(ratioSet * self.current[1])
         if self.wishedTension[3]-self.wishedTension[2]>0:
-            for i in range((len(self.tension))-1):#/2)):
+            for i in range(1,(len(self.tension))-1):#/2)):
                     if -(-self.current[i+1] + self.current[i]) > delta and -(-self.current[i+1] + self.current[i]) > maxDelta:
                         onTension = self.wishedTension[i]
                         onCurrent = self.current[i+1]
                         onResistance = self.resistance[len(self.tension)-2]
                         maxDelta = abs(-self.current[i+1] + self.current[i])    
         else:
-            for i in range((len(self.tension))-1):#/2)):
+            for i in range(1,(len(self.tension))-1):#/2)):
                     if (-self.current[i+1] + self.current[i]) > delta and (-self.current[i+1] + self.current[i]) > maxDelta:
                         onTension = self.wishedTension[i]
                         onCurrent = self.current[i+1]
@@ -80,7 +80,7 @@ class rawDataReset:
 #Finds the largest drop of electrical current and gives the off resistance near 0 V.
         maxDelta = 0.
         if self.wishedTension[3]-self.wishedTension[2]>0:
-            for i in range((len(self.tension))-2):#/2)):
+            for i in range(1,(len(self.tension))-2):#/2)):
                     delta = abs(ratioReset * self.current[i])
                     if (-self.current[i+1] + self.current[i]) > delta and (-self.current[i+1] + self.current[i]) > maxDelta:
                         offTension = self.wishedTension[i]
@@ -88,7 +88,7 @@ class rawDataReset:
                         offResistance = self.resistance[len(self.tension)-2]
                         maxDelta = abs(-self.current[i+1] + self.current[i])    
         else:
-            for i in range((len(self.tension))-2):#/2)):
+            for i in range(1,(len(self.tension))-2):#/2)):
                     delta = -abs(ratioReset * self.current[i])
                     if -(-self.current[i+1] + self.current[i]) > delta and -(-self.current[i+1] + self.current[i]) > maxDelta:
                         offTension = self.wishedTension[i]

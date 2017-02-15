@@ -113,7 +113,12 @@ class ResSwitch(Tkinter.Tk):
 		self.fileMenu.add_command(label="Open rawdata file", command=self.opens)
 		self.fileMenu.add_command(label="Open RS file", command=self.openRSFile)
 		self.fileMenu.add_command(label="Save", command=self.file_save)
-		self.fileMenu.add_command(label="Export", command=self.export_data)
+
+		self.exportMenu = Tkinter.Menu(self.menuBar, tearoff=0)
+		self.exportMenu.add_command(label="one .txt file", command=self.export_data)
+		self.exportMenu.add_command(label="separate .csv files", command=self.export_data_2)
+		self.fileMenu.add_cascade(label="Export", menu=self.exportMenu)
+
 		self.fileMenu.add_separator()
 		self.fileMenu.add_command(label="Exit", command=self.quit)
 		self.menuBar.add_cascade(label="File", menu=self.fileMenu)
@@ -265,6 +270,7 @@ class ResSwitch(Tkinter.Tk):
 		self.plotListTwo[-1].plot(self.binsb,self.cumb,'ro-')
 		self.plotListTwo[-1].legend(loc='upper right')
 		self.plotListTwo[-1].set_xlabel('tension (V)')
+		self.plotListTwo[-1].grid()
 		self.canvasTwo.show()
 		self.tensionHistoWindow.destroy()
 
@@ -325,6 +331,7 @@ class ResSwitch(Tkinter.Tk):
 		self.plotListTwo[-1].legend(loc='upper right')
 		self.plotListTwo[-1].set_xlabel('resistance (ohm)')
 		self.plotListTwo[-1].set_xscale('log')
+		self.plotListTwo[-1].grid()
 		self.canvasTwo.show()
 		self.resistanceHistoWindow.destroy()
 
@@ -385,6 +392,7 @@ class ResSwitch(Tkinter.Tk):
 		self.plotListTwo[-1].legend(loc='upper right')
 		self.plotListTwo[-1].set_xlabel('current (ohm)')
 		self.plotListTwo[-1].set_xscale('log')
+		self.plotListTwo[-1].grid()
 		self.canvasTwo.show()
 		self.currentHistoWindow.destroy()
 
@@ -404,6 +412,7 @@ class ResSwitch(Tkinter.Tk):
 		self.plotListTwo[-1].set_xlabel('cycle')
 		self.plotListTwo[-1].set_ylabel('Resistance (ohm)')
 		self.plotListTwo[-1].set_yscale('log')
+		self.plotListTwo[-1].grid()
 		self.canvasTwo.show()
 
 
@@ -422,6 +431,7 @@ class ResSwitch(Tkinter.Tk):
 		self.plotListTwo[-1].set_xlabel('cycle')
 		self.plotListTwo[-1].set_ylabel('Tension (V)')
 		self.plotListTwo[-1].set_yscale('linear')
+		self.plotListTwo[-1].grid()
 		self.canvasTwo.show()
 
 
@@ -440,6 +450,7 @@ class ResSwitch(Tkinter.Tk):
 		self.plotListTwo[-1].set_xlabel('cycle')
 		self.plotListTwo[-1].set_ylabel('Tension (V)')
 		self.plotListTwo[-1].set_yscale('linear')
+		self.plotListTwo[-1].grid()
 		self.canvasTwo.show()
 
 
@@ -458,6 +469,7 @@ class ResSwitch(Tkinter.Tk):
 		self.plotListTwo[-1].set_xlabel('Roff')
 		self.plotListTwo[-1].set_ylabel('tension (V)')
 		self.plotListTwo[-1].set_yscale('linear')
+		self.plotListTwo[-1].grid()
 		self.canvasTwo.show()
 
 
@@ -476,6 +488,7 @@ class ResSwitch(Tkinter.Tk):
 		self.plotListTwo[-1].set_xlabel('Ron')
 		self.plotListTwo[-1].set_ylabel('tension (V)')
 		self.plotListTwo[-1].set_yscale('linear')
+		self.plotListTwo[-1].grid()
 		self.canvasTwo.show()
 
 
@@ -494,6 +507,7 @@ class ResSwitch(Tkinter.Tk):
 		self.plotListTwo[-1].set_xlabel('ion')
 		self.plotListTwo[-1].set_ylabel('resistance')
 		self.plotListTwo[-1].set_yscale('linear')
+		self.plotListTwo[-1].grid()
 		self.canvasTwo.show()
 
 
@@ -512,6 +526,7 @@ class ResSwitch(Tkinter.Tk):
 		self.plotListTwo[-1].set_xlabel('ioff')
 		self.plotListTwo[-1].set_ylabel('resistance')
 		self.plotListTwo[-1].set_yscale('linear')
+		self.plotListTwo[-1].grid()
 		self.canvasTwo.show()
 
 
@@ -528,8 +543,9 @@ class ResSwitch(Tkinter.Tk):
 		self.plotListTwo[-1].plot(self.ionp,self.Vresetp,'b^',label='Vreset')
 		self.plotListTwo[-1].legend(loc='upper right')
 		self.plotListTwo[-1].set_xlabel('ion')
-		self.plotListTwo[-1].set_ylabel('tension (V)')
+		self.plotListTwo[-1].set_ylabel('wished tension (V)')
 		self.plotListTwo[-1].set_yscale('linear')
+		self.plotListTwo[-1].grid()
 		self.canvasTwo.show()
 
 
@@ -546,8 +562,9 @@ class ResSwitch(Tkinter.Tk):
 		self.plotListTwo[-1].plot(self.ioffp,self.Vresetp,'b^',label='Vreset')
 		self.plotListTwo[-1].legend(loc='upper right')
 		self.plotListTwo[-1].set_xlabel('ioff')
-		self.plotListTwo[-1].set_ylabel('tension (V)')
+		self.plotListTwo[-1].set_ylabel('wished tension (V)')
 		self.plotListTwo[-1].set_yscale('linear')
+		self.plotListTwo[-1].grid()
 		self.canvasTwo.show()
 
 
@@ -567,10 +584,10 @@ class ResSwitch(Tkinter.Tk):
 			x1,y1 = self.data.cyclePlot(0,1,'linear','reset',cy)	
 		self.figureOne.delaxes(self.plotListOne[-1])
 		self.plotListOne.append(self.figureOne.add_subplot(111))
-		#self.plotListTwo[-1].ticklabel_format(axis='y',style='sci',scilimits=(1,4))
 		self.plotListOne[-1].plot(x1,y1,'bo-')
-		self.plotListOne[-1].set_xlabel('tension (V)')
+		self.plotListOne[-1].set_xlabel('wished tension (V)')
 		self.plotListOne[-1].set_ylabel('current')
+		self.plotListOne[-1].grid()
 		self.canvasOne.show()
 
 
@@ -590,6 +607,9 @@ class ResSwitch(Tkinter.Tk):
 		self.figureOne.delaxes(self.plotListOne[-1])
 		self.plotListOne.append(self.figureOne.add_subplot(111))
 		self.plotListOne[-1].plot(x1,y1,'bo-')
+		self.plotListOne[-1].set_xlabel('wished tension (V)')
+		self.plotListOne[-1].set_ylabel('resistance (ohm)')
+		self.plotListOne[-1].grid()
 		self.canvasOne.show()
 
 
@@ -608,6 +628,9 @@ class ResSwitch(Tkinter.Tk):
 		self.figureOne.delaxes(self.plotListOne[-1])
 		self.plotListOne.append(self.figureOne.add_subplot(111))
 		self.plotListOne[-1].plot(x1,y1,'bo-')
+		self.plotListOne[-1].set_xlabel('time (s)')
+		self.plotListOne[-1].set_ylabel('resistance (ohm)')
+		self.plotListOne[-1].grid()
 		self.canvasOne.show()
 
 
@@ -626,6 +649,9 @@ class ResSwitch(Tkinter.Tk):
 		self.figureOne.delaxes(self.plotListOne[-1])
 		self.plotListOne.append(self.figureOne.add_subplot(111))
 		self.plotListOne[-1].plot(x1,y1,'bo-')
+		self.plotListOne[-1].set_xlabel('time (s)')
+		self.plotListOne[-1].set_ylabel('tension (V)')
+		self.plotListOne[-1].grid()
 		self.canvasOne.show()
 
 
@@ -644,6 +670,9 @@ class ResSwitch(Tkinter.Tk):
 		self.figureOne.delaxes(self.plotListOne[-1])
 		self.plotListOne.append(self.figureOne.add_subplot(111))
 		self.plotListOne[-1].plot(x1,y1,'bo-')
+		self.plotListOne[-1].set_xlabel('tension (V)')
+		self.plotListOne[-1].set_ylabel('current (A)')
+		self.plotListOne[-1].grid()
 		self.canvasOne.show()
 
 
@@ -662,6 +691,9 @@ class ResSwitch(Tkinter.Tk):
 		self.figureOne.delaxes(self.plotListOne[-1])
 		self.plotListOne.append(self.figureOne.add_subplot(111))
 		self.plotListOne[-1].plot(x1,y1,'bo-')
+		self.plotListOne[-1].set_xlabel('time (s)')
+		self.plotListOne[-1].set_ylabel('current (A)')
+		self.plotListOne[-1].grid()
 		self.canvasOne.show()
 
 
@@ -1153,6 +1185,120 @@ class ResSwitch(Tkinter.Tk):
 				text2save = text2save + str(self.cumcby[i]) + '\t' + str(self.cumcbx[i]) + '\n'
 			text2save = text2save + '\n'
 			name.write(text2save)
+			name.close()
+
+
+
+
+#exports the results to several txt files
+	def export_data_2(self):
+		if self.data != None:
+			self.onResPlot,self.offResPlot = self.data.resistancePlot()
+			self.onTenPlot,self.offTenPlot = self.data.tensionPlot()
+			self.onCurPlot,self.offCurPlot = self.data.currentPlot()
+			name = asksaveasfile(mode='w',defaultextension=".csv")
+
+			text2save2 = self.data.results()
+			name.write(text2save2)
+
+			f=open(name.name[:-4]+'_resOn_vs_cycles.csv','w')
+			text2save = ''
+			text2save += str('resistance vs cycles (on)\n')
+			for i in range(len(self.onResPlot)):
+				text2save = text2save + str(i) + ',' + str(self.onResPlot[i]) + '\n'
+			f.write(text2save)
+			f.close()
+
+			f=open(name.name[:-4]+'_resOFF_vs_cycles.csv','w')
+			text2save = ''
+			text2save = text2save + str('resistance vs cycles (off)\n')
+			for i in range(len(self.offResPlot)):
+				text2save = text2save + str(i) + ',' + str(self.offResPlot[i]) + '\n'
+			f.write(text2save)
+			f.close()
+
+			f=open(name.name[:-4]+'_setCur_vs_cycles.csv','w')
+			text2save = ''
+			text2save = text2save + str('current vs cycles (set)\n')
+			for i in range(len(self.onCurPlot)):
+				text2save = text2save + str(i) + ',' + str(self.onCurPlot[i]) + '\n'
+			f.write(text2save)
+			f.close()
+
+			f=open(name.name[:-4]+'_resetCur_vs_cycles.csv','w')
+			text2save = ''
+			text2save = text2save + str('current vs cycles (reset)\n')
+			for i in range(len(self.offCurPlot)):
+				text2save = text2save + str(i) + ',' + str(self.offCurPlot[i]) + '\n'
+			f.write(text2save)
+			f.close()
+
+			f=open(name.name[:-4]+'_Vset_vs_cycles.csv','w')
+			text2save = ''			
+			text2save = text2save + str('Vset vs cycles\n')
+			for i in range(len(self.onTenPlot)):
+				text2save = text2save + str(i) + ',' + str(self.onTenPlot[i]) + '\n'
+			f.write(text2save)
+			f.close()
+
+			f=open(name.name[:-4]+'_Vreset_vs_cycles.csv','w')
+			text2save = ''	
+			text2save = text2save + str('Vreset vs cycles\n')
+			for i in range(len(self.offTenPlot)):
+				text2save = text2save + str(i) + ',' + str(self.offTenPlot[i]) + '\n'
+			f.write(text2save)
+			f.close()
+
+			f=open(name.name[:-4]+'_set_tension_histogram.csv','w')
+			text2save = ''					
+			cumon, cumonX, cumoff, cumoffX = self.data.tensionCumulativeProbability()
+			text2save = text2save + str('tension histogram (on)\n')
+			for i in range(len(cumonX)):
+				text2save = text2save + str(cumonX[i]) + ',' + str(cumon[i]) + '\n'
+			f.write(text2save)
+			f.close()
+
+			f=open(name.name[:-4]+'_reset_tension_histogram.csv','w')
+			text2save = ''		
+			text2save = text2save + str('tension histogram (off)\n')
+			for i in range(len(cumoffX)):
+				text2save = text2save + str(cumoffX[i]) + ',' + str(cumoff[i]) + '\n'
+			f.write(text2save)
+			f.close()
+
+			f=open(name.name[:-4]+'_on_resistance_histogram.csv','w')
+			text2save = ''	
+			self.cumax,self.cumay,self.cumbx,self.cumby = self.data.resistanceCumulativeProbability()
+			text2save = text2save + str('resistance histogram (on)\n')
+			for i in range(len(self.cumax)):
+				text2save = text2save + str(self.cumax[i]) + ',' + str(self.cumay[i]) + '\n'
+			f.write(text2save)
+			f.close()
+
+			f=open(name.name[:-4]+'_off_resistance_histogram.csv','w')
+			text2save = ''				
+			text2save = text2save + str('resistance histogram (off)\n')
+			for i in range(len(self.cumbx)):
+				text2save = text2save + str(self.cumbx[i]) + ',' + str(self.cumby[i]) + '\n'
+			f.write(text2save)
+			f.close()
+
+			f=open(name.name[:-4]+'_set_current_histogram.csv','w')
+			text2save = ''					
+			self.cumcax,self.cumcay,self.cumcbx,self.cumcby = self.data.currentCumulativeProbability()
+			text2save = text2save + str('current histogram (set)\n')
+			for i in range(len(self.cumcax)):
+				text2save = text2save + str(self.cumcay[i]) + ',' + str(self.cumcax[i]) + '\n'
+			f.write(text2save)
+			f.close()
+
+			f=open(name.name[:-4]+'_reset_current_histogram.csv','w')
+			text2save = ''					
+			text2save = text2save + str('current histogram (reset)\n')
+			for i in range(len(self.cumcbx)):
+				text2save = text2save + str(self.cumcby[i]) + ',' + str(self.cumcbx[i]) + '\n'
+			f.write(text2save)
+			f.close()
 			name.close()
 
 
