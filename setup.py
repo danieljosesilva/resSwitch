@@ -13,7 +13,7 @@ description = 'Usefull for analyzing experiments involving memristor '
 description += 'transpor measurments.'
 
 setup(name='resswitch',
-      version='0.1.0',
+      version='0.1.1',
       description='GUI for analyzing resistive switching data',
       long_description=description,
       classifiers=[
@@ -29,6 +29,7 @@ setup(name='resswitch',
       packages=['resswitch'],
       install_requires=[
           'matplotlib',
+          'numpy'
       ],
       scripts=['bin/resswitch'],
       include_package_data=True,

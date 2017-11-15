@@ -2,4 +2,4 @@
 
 import resswitch
 
-resswitch.ResSwitch().mainloop()
+resswitch.resSwitch.ResSwitch().mainloop()

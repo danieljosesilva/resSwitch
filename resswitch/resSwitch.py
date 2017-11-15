@@ -30,8 +30,8 @@ class ResSwitch(Tkinter.Tk):
         self.title('resSwitch')
 
         # Constructs the icon. Comment these lines if running on Windows:
-        # img = Tkinter.PhotoImage(file='ico/resSwitch.ico')
-        # self.tk.call('wm', 'iconphoto', self._w, img)
+        img = Tkinter.PhotoImage(file='ico/resSwitch.ico')
+        self.tk.call('wm', 'iconphoto', self._w, img)
 
         # construct the Left Frame.
         self.labelFrameLeft = Tkinter.LabelFrame(self, text="Data")
