@@ -16,6 +16,7 @@ from matplotlib.figure import Figure
 from tkFileDialog import askopenfilename
 from tkFileDialog import asksaveasfile
 import pickle
+# import os
 
 
 class ResSwitch(Tkinter.Tk):
@@ -30,8 +31,10 @@ class ResSwitch(Tkinter.Tk):
         self.title('resSwitch')
 
         # Constructs the icon. Comment these lines if running on Windows:
-        img = Tkinter.PhotoImage(file='ico/resSwitch.ico')
-        self.tk.call('wm', 'iconphoto', self._w, img)
+        # dir = os.path.dirname(__file__)
+        # icofile = os.path.join(dir, 'ico/resSwitch.ico')
+        # img = Tkinter.PhotoImage(file=icofile)
+        # self.tk.call('wm', 'iconphoto', self._w, img)
 
         # construct the Left Frame.
         self.labelFrameLeft = Tkinter.LabelFrame(self, text="Data")

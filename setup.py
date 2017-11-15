@@ -13,7 +13,7 @@ description = 'Usefull for analyzing experiments involving memristor '
 description += 'transpor measurments.'
 
 setup(name='resswitch',
-      version='0.1.2',
+      version='0.1.3',
       description='GUI for analyzing resistive switching data',
       long_description=description,
       classifiers=[
