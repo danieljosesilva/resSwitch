@@ -7,7 +7,7 @@ GUI for analyzing resistive switching data. Usefull for analyzing experiments in
 transpor measurments. This program treats raw data of resistive switching measurements and generates several key statistical values.
 It can save treated data with the extension .rs and export data for plotting with other software.
 
-![resSwitch-screenshot](https://github.com/danieljosesilva/resSwitch/blob/master/img/resSwitchScreenshot.png)
+![resSwitch-screenshot](https://github.com/danieljosesilva/resSwitch/blob/master/img/resswitch.gif)
 
 ## Instalation
 
