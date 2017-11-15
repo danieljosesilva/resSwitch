@@ -1,7 +1,7 @@
 # resSwitch 
 
 
-<img src="https://github.com/danieljosesilva/resSwitch/blob/master/resSwitch.ico" height="30"> resSwitch 0.01
+<img src="https://github.com/danieljosesilva/resSwitch/blob/master/resswitch/ico/resSwitch.ico" height="30"> resSwitch 0.01
 
 GUI for analyzing resistive switching data. Usefull for analyzing experiments involving memristor
 transpor measurments. This program treats raw data of resistive switching measurements and generates several key statistical values.
@@ -20,7 +20,7 @@ pip install resswitch
 To open the GUI type in the bash shell:
 
 ```bash
-resswitch
+$ resswitch
 ```
 
 author: Daniel Silva (djsilva99@gmail.com) <br> current version: v0.1.0
