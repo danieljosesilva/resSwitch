@@ -2,18 +2,18 @@
 from __future__ import unicode_literals
 """resswitch: GUI for analyzing resistive switching data
 
-Usefull for analyzing experiments involving memristor
-transpor measurments.
+Useful for analyzing experiments involving memristor
+transport measurements.
 
 """
 
 from setuptools import setup
 
-description = 'Usefull for analyzing experiments involving memristor '
-description += 'transpor measurments.'
+description = 'Useful for analyzing experiments involving memristor '
+description += 'transport measurements.'
 
 setup(name='resswitch',
-      version='0.1.3',
+      version='0.1.4',
       description='GUI for analyzing resistive switching data',
       long_description=description,
       classifiers=[
