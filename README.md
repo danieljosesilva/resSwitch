@@ -18,7 +18,7 @@ author: Daniel Silva (djsilva99@gmail.com) <br> current version: v0.1.4
 To install simply use the pip package manager:
 
 ```bash
-pip install resswitch
+$ pip install resswitch
 ```
 
 To open the GUI type in the bash shell:
@@ -27,9 +27,10 @@ To open the GUI type in the bash shell:
 $ resswitch
 ```
 
-#### windows
+### windows
 
 The latest version compatible with windows is v0.1.3.
+
 
 ##### Pre-installation
 
@@ -39,19 +40,20 @@ install the latest version of <a href='https://www.python.org/downloads/windows/
 
 Download get-pip.py from <a href='https://pip.pypa.io/en/stable/installing/'>https://pip.pypa.io/en/stable/installing/</a> and execute the file.
 
+
 ##### Installation
 
 Open the command line and type:
 
 ```bash
-pip install resswitch==0.1.3
+> pip install resswitch==0.1.3
 ```
 
 To open the resswitch window you can either open the python shell and type
 
 ```python
-import resswitch
-resswitch.resSwitch.ResSwitch().mainloop()
+>>> import resswitch
+>>> resswitch.resSwitch.ResSwitch().mainloop()
 ```
 
 or you can download the resswitch-windows.py file and double click it.
